@@ -52,7 +52,7 @@ public class MyReceiver extends BroadcastReceiver {
                 L.d("onReceive airplane true");
                 States.states[States.AIR_MODE] = States.ON;
             }
-            localIntent = new Intent("air");
+            localIntent = new Intent(States.AIR_STRING);
             LocalBroadcastManager.getInstance(context).sendBroadcast(localIntent);
 
         } else if (intent.getAction().equals("android.net.wifi.WIFI_STATE_CHANGED")) {
@@ -68,7 +68,7 @@ public class MyReceiver extends BroadcastReceiver {
                 States.states[States.WI_FI] = States.ON;
                 context.sendBroadcast(i);
             }
-            localIntent = new Intent("wifi");
+            localIntent = new Intent(States.WIFI_STRING);
             LocalBroadcastManager.getInstance(context).sendBroadcast(localIntent);
 
         } else if (intent.getAction().equals("android.bluetooth.adapter.action.STATE_CHANGED")) {
@@ -82,7 +82,7 @@ public class MyReceiver extends BroadcastReceiver {
                 States.states[States.BLUETOOTH] = States.OFF;
                 context.sendBroadcast(i);
             }
-            localIntent = new Intent("bluetooth");
+            localIntent = new Intent(States.BLUETOOTH_STRING);
             LocalBroadcastManager.getInstance(context).sendBroadcast(localIntent);
 
         } else if (intent.getAction().equals("android.location.PROVIDERS_CHANGED")) {
@@ -99,7 +99,7 @@ public class MyReceiver extends BroadcastReceiver {
                     context.sendBroadcast(i);
                 }
             }
-            localIntent = new Intent("gps");
+            localIntent = new Intent(States.GPS_STRING);
             LocalBroadcastManager.getInstance(context).sendBroadcast(localIntent);
 
         } else if (intent.getAction().equals("my.custom.INTENT")) {
